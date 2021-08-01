@@ -1,24 +1,38 @@
 .editing {
- display: flex;
- justify-content: center;
- 
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  flex-direction: column;
+  align-items: center;
+
 }
+
+.new-elements {
+  max-width: 1280px;
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid gray;
+  margin: 20px 10px;
+  box-sizing: border-box;
+}
+
 .widgets {
   height: 240px;
   width: 240px;
   display: block;
 
-  .elements{
-   -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.3);
-   -moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.3);
-   box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.3);
-   border: 1px solid #e6e6e6;
-   padding: 15px;
-   span{
-    margin-bottom: 15px;
-    display: block;
-    font-size: 18px;
-   }
+  .elements {
+    -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+    box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+    border: 1px solid #e6e6e6;
+    padding: 15px;
+
+    span {
+      margin-bottom: 15px;
+      display: block;
+      font-size: 18px;
+    }
   }
 
   .icon-widgets {
@@ -35,7 +49,8 @@
 
 
   li {
-   cursor: pointer;
+    cursor: pointer;
+
     &::before {
       content: '\e902';
       font-family: 'icon';
