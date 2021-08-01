@@ -16,7 +16,7 @@
               <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
               Altura: <input type="number" name="height" id="height" formControlName="height">
               Ancho: <input type="number" name="width" id="width" formControlName="width">
-              <div (click)="submit()">Update Name</div>
+              <button  [disabled]="!form.valid" (click)="submit()">Add image</button>
             </form>
           </div>
         </li>
