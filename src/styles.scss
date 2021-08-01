@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: note;
+  src: url('./assets/fonts/noto/NotoSans-Regular.ttf');
+  /* IE9 Compat Modes */
+  // src: url("#{$path}fonts/inter/Inter-Medium.eot?#iefix") format("embedded-opentype"),
+  //  url("#{$path}fonts/inter/Inter-Medium.woff2") format("woff2"),
+  //    url("#{$path}fonts/inter/Inter-Medium.woff") format("woff"),
+  //    url("#{$path}fonts/inter/Inter-Medium.ttf") format("truetype"),
+  //   url("#{$path}fonts/inter/Inter-Medium.svg#svgFontName") format("svg"); 
+}
+
+@font-face {
+  font-family: icon;
+  src: url('./assets/fonts/icon/icon.eot');
+  /* IE9 Compat Modes */
+  src: url("./assets/fonts/icon/icon.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/icon/icon.woff") format("woff"),
+    url("./assets/fonts/icon/icon.ttf") format("truetype"),
+    url("./assets/fonts/icon/icon.svg#svgFontName") format("svg");
+}
+
+body{
+ font-family: 'note'
+}
+
+ul, body, li{
+ margin: 0;
+ padding: 0;
+}
+
+li{
+ list-style: none;
+ 
+}

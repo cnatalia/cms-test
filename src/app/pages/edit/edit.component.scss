@@ -1,0 +1,50 @@
+.editing {
+ display: flex;
+ justify-content: center;
+ 
+}
+.widgets {
+  height: 240px;
+  width: 240px;
+  display: block;
+
+  .elements{
+   -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+   -moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+   box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.3);
+   border: 1px solid #e6e6e6;
+   padding: 15px;
+   span{
+    margin-bottom: 15px;
+    display: block;
+    font-size: 18px;
+   }
+  }
+
+  .icon-widgets {
+    &::before {
+      content: '\e90a';
+      font-family: 'icon';
+      color: cornflowerblue;
+      font-size: 35px;
+      display: block;
+      text-align: center;
+    }
+  }
+
+
+
+  li {
+   cursor: pointer;
+    &::before {
+      content: '\e902';
+      font-family: 'icon';
+      font-size: 40px;
+      display: inline-block;
+      color: #bbbbbb;
+      vertical-align: middle;
+      margin-right: 8px;
+
+    }
+  }
+}
