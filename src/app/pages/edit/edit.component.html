@@ -1,6 +1,7 @@
 <div class="editing">
   <div class="new-elements">
-<img src="" alt="" class="load">
+    <img src="" alt="" class="load">
+    <label for="" class="text">{{texto}}</label>
   </div>
   <div class="widgets">
     <div class="icon">
@@ -9,20 +10,26 @@
     <div class="elements">
       <span>Add Widget</span>
       <ul>
-        <li>
-          <span>Image</span>
-          <div>
-            <form action="" [formGroup]="form">
-              <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
-              Altura: <input type="number" name="height" id="height" formControlName="height">
-              Ancho: <input type="number" name="width" id="width" formControlName="width">
-              <button  [disabled]="!form.valid" (click)="submit()">Add image</button>
-            </form>
-          </div>
+        <li (click)="show('image')">
+          <span class="title-widget">Image</span>
+          <form action="" [formGroup]="formImage" *ngIf="this.showImage">
+            <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
+            Altura: <input type="number" name="height" id="height" formControlName="height">
+            Ancho: <input type="number" name="width" id="width" formControlName="width">
+            <button [disabled]="!formImage.valid" (click)="submit()">Add image</button>
+          </form>
         </li>
 
-        <li>Text Editor</li>
-        <li>Hello Widget</li>
+        <li (click)="show('text')" >
+          <span class="title-widget">Text Editor</span>
+          <form action="" [formGroup]="formImage" *ngIf="this.showText">
+              <textarea *ngIf="this.showText" [(ngModel)]='texto' name="" id="" cols="30" rows="10" formControlName="text"></textarea>
+              <!-- <button [disabled]="!formText.valid" (click)="submit()">Add text</button> -->
+          </form>
+          
+        </li>
+
+        <li class="title-widget">Hello Widget</li>
       </ul>
     </div>
   </div>

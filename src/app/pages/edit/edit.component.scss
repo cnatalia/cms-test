@@ -22,7 +22,7 @@
 
 .widgets {
   height: 240px;
-  width: 240px;
+  width: 300px;
   display: block;
 
   .elements {
@@ -34,11 +34,20 @@
 
     span {
       margin-bottom: 15px;
-      display: block;
+      display: inline-block;
       font-size: 18px;
+    }
+    .title-widget{
+      font-size: 14px;
     }
   }
 
+  form{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    align-items: self-start;
+  }
   .icon-widgets {
     &::before {
       content: '\e90a';

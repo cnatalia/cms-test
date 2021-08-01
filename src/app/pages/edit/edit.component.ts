@@ -8,18 +8,28 @@ import { FormControl, FormGroup, AbstractControl, RequiredValidator, Validators 
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  form: FormGroup;
+  formImage: FormGroup;
+  formText : FormGroup;
   public imageNew: { url: string, height: string, width: string };
   public currentName
   public currentImage;
+  public showImage = false;
+  public showText = false;
 
   constructor() {
 
-    this.form = new FormGroup({
+    this.formImage = new FormGroup({
       image: new FormControl('', [Validators.required]),
       height: new FormControl('', [Validators.required]),
       width: new FormControl('', [Validators.required]),
+      text:  new FormControl('', [Validators.required])
     });
+
+    this.formText = new FormGroup({
+      text:  new FormControl('', [Validators.required])
+    });
+
+
 
   }
 
@@ -44,9 +54,10 @@ export class EditComponent implements OnInit {
   }
 
 
-  get image() { return this.form.get('image'); }
-  get height() { return this.form.get('height'); }
-  get width() { return this.form.get('width'); }
+  get image() { return this.formImage.get('image'); }
+  get height() { return this.formImage.get('height'); }
+  get width() { return this.formImage.get('width'); }
+  get text() { return this.formImage.get('text'); }
 
   submit() {
     const newele = document.querySelector('.load');
@@ -69,9 +80,12 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.form.get('height').valueChanges.subscribe((value) => { console.log(value) })
+  }
 
-
+  show(value){
+    this.showImage = value === 'image';
+    this.showText = value === 'text';
+   
   }
 
 }
