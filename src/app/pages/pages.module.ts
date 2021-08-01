@@ -7,10 +7,12 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { EditComponent } from './edit/edit.component';
 import { PreviewComponent } from './preview/preview.component';
+import { ImageComponent } from './image/image.component';
+import { TextComponent } from './text/text.component';
 
 
 @NgModule({
-  declarations: [PreviewComponent, EditComponent],
+  declarations: [PreviewComponent, EditComponent, ImageComponent, TextComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

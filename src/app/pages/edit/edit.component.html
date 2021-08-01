@@ -1,7 +1,8 @@
 <div class="editing">
   <div class="new-elements">
-    <img src="" alt="" class="load">
-    <label for="" class="text">{{texto}}</label>
+      <div #vf></div>
+
+    
   </div>
   <div class="widgets">
     <div class="icon">
@@ -16,15 +17,15 @@
             <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
             Altura: <input type="number" name="height" id="height" formControlName="height">
             Ancho: <input type="number" name="width" id="width" formControlName="width">
-            <button [disabled]="!formImage.valid" (click)="submit()">Add image</button>
+            <button [disabled]="!formImage.valid" (click)="createComponent('image')">Add image</button>
           </form>
         </li>
 
         <li (click)="show('text')" >
           <span class="title-widget">Text Editor</span>
           <form action="" [formGroup]="formImage" *ngIf="this.showText">
-              <textarea *ngIf="this.showText" [(ngModel)]='texto' name="" id="" cols="30" rows="10" formControlName="text"></textarea>
-              <!-- <button [disabled]="!formText.valid" (click)="submit()">Add text</button> -->
+              <textarea *ngIf="this.showText"  name="" id="" cols="30" rows="10" formControlName="text"></textarea>
+              <button  (click)="createComponent('text')">Add image</button>
           </form>
           
         </li>
