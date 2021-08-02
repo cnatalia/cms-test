@@ -1,1 +1,2 @@
-<div class="text">Hello I'm a TEXT</div>
+<div class="text" *ngIf="!isRender">Hello I'm a TEXT</div>
+<div *ngIf="isRender">{{text}}</div>
