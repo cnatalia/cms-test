@@ -11,12 +11,14 @@
   width: 80px;
   border: 1px solid blue;
 }
-.preview{
+.button-preview{
   margin-left: auto;
   &::before{
     font-family: 'icon';
     content: '\e901' ;
     display: inline;
+    margin-right: 8px;
+    font-size: 15px;
   }
 }
 .new-elements {

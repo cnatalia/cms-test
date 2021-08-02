@@ -20,16 +20,40 @@
     url("./assets/fonts/icon/icon.svg#svgFontName") format("svg");
 }
 
-body{
- font-family: 'note'
+body {
+  font-family: 'note';
+    -webkit-font-smoothing: antialiased;
 }
 
-ul, body, li{
- margin: 0;
- padding: 0;
+ul,
+body,
+li {
+  margin: 0;
+  padding: 0;
 }
 
-li{
- list-style: none;
- 
+li {
+  list-style: none;
+
+}
+button, .button-preview,
+.button-edit{
+  width: 100px;
+  height: 25px;
+  background: #f56d55c7;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 15px 0
+}
+
+.button-preview,
+.button-edit {
+  width: 150px;
+  height: 50px;
+  margin: 0;
+
 }

@@ -7,9 +7,13 @@
 .button-edit{
   margin-left: auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
   &::before{
     font-family: 'icon';
     content: '\e900' ;
     display: inline;
+    margin-right: 8px;
+    font-size: 15px;
   }
 }
