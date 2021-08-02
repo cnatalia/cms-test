@@ -13,6 +13,11 @@
 }
 .preview{
   margin-left: auto;
+  &::before{
+    font-family: 'icon';
+    content: '\e901' ;
+    display: inline;
+  }
 }
 .new-elements {
   max-width: 1280px;

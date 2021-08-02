@@ -7,4 +7,9 @@
 .button-edit{
   margin-left: auto;
   display: flex;
+  &::before{
+    font-family: 'icon';
+    content: '\e900' ;
+    display: inline;
+  }
 }
