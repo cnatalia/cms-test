@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-image',
@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image.component.scss']
 })
 export class ImageComponent implements OnInit {
+  @Input() src;
+  @Input() isRender = false;
 
-  constructor() { }
+  // public isRender = false;
+
+  constructor() {
+    // this.isRender = this.$isRender;
+  }
 
   ngOnInit(): void {
   }

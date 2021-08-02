@@ -1,4 +1,5 @@
 <div class="editing">
+  <button class="preview" (click)="showPreview()">Preview</button>
   <div class="new-elements">
       <div #vf></div>
   </div>
@@ -11,24 +12,22 @@
       <ul>
         <li (click)="show('image')">
           <span class="title-widget">Image</span>
-          <form action="" [formGroup]="formImage" *ngIf="this.showImage">
+          <form action="" [formGroup]="form" *ngIf="this.showImage">
             <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
-            Altura: <input type="number" name="height" id="height" formControlName="height">
-            Ancho: <input type="number" name="width" id="width" formControlName="width">
-            <button [disabled]="!formImage.valid" (click)="createComponent('image')">Add image</button>
+            <button [disabled]="!this.currentName" (click)="createComponent('image')">Add image</button>
           </form>
         </li>
 
         <li (click)="show('text')" >
           <span class="title-widget">Text Editor</span>
-          <form action="" [formGroup]="formImage" *ngIf="this.showText">
+          <form action="" [formGroup]="form" *ngIf="this.showText">
               <textarea *ngIf="this.showText"  name="" id="" cols="30" rows="10" formControlName="text"></textarea>
-              <button  (click)="createComponent('text')">Add image</button>
+              <button  [disabled]="!this.text.valid" (click)="createComponent('text')">Add text</button>
           </form>
           
         </li>
 
-        <li class="title-widget">Hello Widget</li>
+        <li class="title-widget" (click)="createComponent('hello')">Hello Widget</li>
       </ul>
     </div>
   </div>

@@ -1,4 +1,6 @@
 
-<div>
+<div class="image" *ngIf="!isRender">
  HELLO I'M A IMAGE WIDGET
 </div>
+
+<img src="{{this.src}}" alt="" *ngIf="isRender"  width="200" height="200">

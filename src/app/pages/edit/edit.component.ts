@@ -1,9 +1,16 @@
 /* tslint:disable */
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup, AbstractControl, RequiredValidator, Validators } from '@angular/forms';
+import { Data, Router } from '@angular/router';
 
+import { FetchPreviewService } from 'src/app/shared/services/fetch-preview/fetch-preview.service';
+
+import { HelloComponent } from '../hello/hello.component';
 import { ImageComponent } from '../image/image.component';
 import { TextComponent } from '../text/text.component';
+
+const NAME_USER = 'Natalia';
 
 @Component({
   selector: 'app-edit',
@@ -11,42 +18,48 @@ import { TextComponent } from '../text/text.component';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  formImage: FormGroup;
+  form: FormGroup;
   formText: FormGroup;
   public imageNew: { url: string, height: string, width: string };
   public currentName
   public currentImage;
   public showImage = false;
   public showText = false;
-  public payload = { 'image': [{}], 'text': [{}], 'hello': [{}] };
-
+  public payload : Data = { image: [], text: [], hello: []};
+  public consecutive = 1;
   @ViewChild("vf", { read: ViewContainerRef }) vf: ViewContainerRef;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private fetch: FetchPreviewService,
+    private router: Router,
+    ) {
 
-    this.formImage = new FormGroup({
+    this.form = new FormGroup({
       image: new FormControl('', [Validators.required]),
-      height: new FormControl('', [Validators.required]),
-      width: new FormControl('', [Validators.required]),
-      text: new FormControl('')
-    });
-
-    this.formText = new FormGroup({
       text: new FormControl('', [Validators.required])
     });
+
 
   }
 
   public createComponent(type): void {
-    const component = type === 'image' ? this.componentFactoryResolver.resolveComponentFactory(ImageComponent) : this.componentFactoryResolver.resolveComponentFactory(TextComponent);
+
+
+    const component = type === 'image' ? this.componentFactoryResolver.resolveComponentFactory(ImageComponent) : (type === 'text' ? this.componentFactoryResolver.resolveComponentFactory(TextComponent) : this.componentFactoryResolver.resolveComponentFactory(HelloComponent));
     this.vf.createComponent(component);
 
-    if(type === 'image'){
-      this.payload.image.push([{ 'width': this.width.value }, { 'height': this.height.value }, { 'url': this.currentImage }, { 'name': this.currentName }])
+    if (type === 'image') {
+      this.payload.image.push({ 'url': this.currentImage, 'name': this.currentName })
 
-    }else{
-      this.payload.text.push({'id': 1, 'text': this.text.value})
+    } else if (type === 'text') {
+      this.payload.text.push({ 'id': this.consecutive, 'text': this.text.value })
+      this.consecutive = this.consecutive + 1
+    } else {
+      this.payload.hello.push( { 'name': NAME_USER} )
+
     }
+
     console.log(this.payload)
   }
 
@@ -64,32 +77,16 @@ export class EditComponent implements OnInit {
   }
 
 
-  get image() { return this.formImage.get('image'); }
-  get height() { return this.formImage.get('height'); }
-  get width() { return this.formImage.get('width'); }
-  get text() { return this.formImage.get('text'); }
+  get image() { return this.form.get('image'); }
+  get height() { return this.form.get('height'); }
+  get width() { return this.form.get('width'); }
+  get text() { return this.form.get('text'); }
 
-  submit() {
-    console.log(this.payload)
-    //type, value, width?, height?
-
-    // const newele = document.querySelector('.load');
-    // const sesion = sessionStorage.getItem(this.currentName)
-
-    // sessionStorage.setItem(this.currentName, JSON.stringify({ url: JSON.parse(sesion).url, height: this.height.value, width: this.width.value }))
-
-
-    // if (sesion) {
-    //   const recent = JSON.parse(sessionStorage.getItem(this.currentName)).url
-    //   const width = JSON.parse(sessionStorage.getItem(this.currentName)).width
-    //   const height = JSON.parse(sessionStorage.getItem(this.currentName)).height
-    //   if (recent) {
-    //     newele.setAttribute('src', recent)
-    //     newele.setAttribute('height', String(height))
-    //     newele.setAttribute('width', String(width))
-    //   }
-    // }
+  showPreview() {
+    this.fetch.setData(this.payload)
+    this.router.navigateByUrl(`/preview`)
   }
+
 
   ngOnInit(): void {
 
