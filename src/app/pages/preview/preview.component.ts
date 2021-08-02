@@ -1,3 +1,4 @@
+/* tslint:disable */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -31,10 +32,13 @@ export class PreviewComponent implements OnInit {
         if (data.hello) { this.hellos = data.hello; console.log(this.hellos); }
       });
 
-
-
     });
 
+  }
+
+  public showEdit() {
+
+    this.router.navigateByUrl(`/edit`)
   }
 
 }
