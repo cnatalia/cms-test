@@ -13,7 +13,8 @@
         <li (click)="show('image')">
           <span class="title-widget">Image</span>
           <form action="" [formGroup]="form" *ngIf="this.showImage">
-            <input type="file" name="" id="new-img" [formControl]="image" (change)="onFileSelected($event)">
+            <input type="file" accept="image/*" name="" id="new-img" class="file-select " [formControl]="image" (change)="onFileSelected($event)">
+            <label for="">{{this.currentName}}</label>
             <button [disabled]="!this.currentName" (click)="createComponent('image')">Add image</button>
           </form>
         </li>
