@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FetchPreviewService } from 'src/app/shared/services/fetch-preview/fetch-preview.service';
+const SESSION = 'preview1'
 
 @Component({
   selector: 'app-preview',
@@ -14,6 +15,7 @@ export class PreviewComponent implements OnInit {
   public images;
   public texts;
   public hellos;
+  public saveData;
 
   constructor(
     private fetch: FetchPreviewService,
@@ -27,8 +29,8 @@ export class PreviewComponent implements OnInit {
 
       Array(this.data).find((data) => {
         if (data.image) { this.images = data.image; }
-        if (data.text) { this.texts = data.text;  }
-        if (data.hello) { this.hellos = data.hello;  }
+        if (data.text) { this.texts = data.text; }
+        if (data.hello) { this.hellos = data.hello; }
       });
 
     });
@@ -36,8 +38,8 @@ export class PreviewComponent implements OnInit {
   }
 
   public showEdit() {
-
-    this.router.navigateByUrl(`/edit`)
+    this.saveData = sessionStorage.getItem(SESSION)
+    this.router.navigateByUrl(`/edit/${SESSION}`)
   }
 
 }

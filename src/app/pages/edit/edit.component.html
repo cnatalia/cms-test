@@ -2,6 +2,7 @@
   <button class="button-preview" (click)="showPreview()">Preview</button>
   <div class="new-elements">
       <div #vf></div>
+
   </div>
   <div class="widgets">
     <div class="icon">
@@ -15,7 +16,7 @@
           <form action="" [formGroup]="form" *ngIf="this.showImage">
             <input type="file" accept="image/*" name="" id="new-img" class="file-select " [formControl]="image" (change)="onFileSelected($event)">
             <label for="">{{this.currentName}}</label>
-            <button [disabled]="!this.currentName" (click)="createComponent('image')">Add image</button>
+            <button [disabled]="!this.currentName" (click)="createComponent('image'); createPayload('image')">Add image</button>
           </form>
         </li>
 
@@ -23,12 +24,12 @@
           <span class="title-widget">Text Editor</span>
           <form action="" [formGroup]="form" *ngIf="this.showText">
               <textarea *ngIf="this.showText"  name="" id="" cols="30" rows="10" formControlName="text"></textarea>
-              <button  [disabled]="!this.text.valid" (click)="createComponent('text')">Add text</button>
+              <button  [disabled]="!this.text.valid" (click)="createComponent('text'); createPayload('text')">Add text</button>
           </form>
           
         </li>
 
-        <li class="title-widget" (click)="createComponent('hello')">Hello Widget</li>
+        <li class="title-widget" (click)="createComponent('hello'); createPayload('hello')">Hello Widget</li>
       </ul>
     </div>
   </div>

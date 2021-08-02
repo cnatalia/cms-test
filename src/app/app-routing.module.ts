@@ -14,6 +14,10 @@ const routes: Routes = [
 		path: 'edit',
 		component: EditComponent
 	},
+	{
+		path: 'edit/:data',
+		component: EditComponent
+	},
   {
 		path: 'preview',
 		component: PreviewComponent

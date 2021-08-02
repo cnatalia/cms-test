@@ -9,10 +9,9 @@ export class ImageComponent implements OnInit {
   @Input() src?;
   @Input() isRender ? = false;
 
-  // public isRender = false;
 
   constructor() {
-    // this.isRender = this.$isRender;
+
   }
 
   ngOnInit(): void {
