@@ -25,7 +25,6 @@ export class EditComponent implements OnInit, AfterViewInit{
   public showText = false;
   public payload: Data = { image: [], text: [], hello: [] };
   public consecutive = 1;
-  public idSession = 1;
   public dataSession;
   @ViewChild("vf", { read: ViewContainerRef }) vf: ViewContainerRef;
 
@@ -88,7 +87,6 @@ export class EditComponent implements OnInit, AfterViewInit{
     this.fetch.setData(this.payload)
     sessionStorage.clear()
     sessionStorage.setItem(SESSION, JSON.stringify(this.payload))
-    this.idSession = this.idSession + 1;
     this.router.navigateByUrl(`/preview`)
   }
 
