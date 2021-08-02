@@ -19,8 +19,6 @@ const NAME_USER = 'Natalia';
 })
 export class EditComponent implements OnInit {
   form: FormGroup;
-  formText: FormGroup;
-  public imageNew: { url: string, height: string, width: string };
   public currentName
   public currentImage;
   public showImage = false;
@@ -60,7 +58,6 @@ export class EditComponent implements OnInit {
 
     }
 
-    console.log(this.payload)
   }
 
   onFileSelected(event) {
@@ -78,8 +75,6 @@ export class EditComponent implements OnInit {
 
 
   get image() { return this.form.get('image'); }
-  get height() { return this.form.get('height'); }
-  get width() { return this.form.get('width'); }
   get text() { return this.form.get('text'); }
 
   showPreview() {

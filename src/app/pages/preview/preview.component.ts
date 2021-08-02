@@ -24,12 +24,11 @@ export class PreviewComponent implements OnInit {
 
     this.fetch.getData().subscribe((value) => {
       this.data = value;
-      console.log(this.data);
 
       Array(this.data).find((data) => {
-        if (data.image) { this.images = data.image; console.log(this.images); }
-        if (data.text) { this.texts = data.text; console.log(this.texts); }
-        if (data.hello) { this.hellos = data.hello; console.log(this.hellos); }
+        if (data.image) { this.images = data.image; }
+        if (data.text) { this.texts = data.text;  }
+        if (data.hello) { this.hellos = data.hello;  }
       });
 
     });
